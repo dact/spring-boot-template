@@ -1,19 +1,21 @@
-package com.company.apppersistence.dao;
+package com.company.apppersistence.service;
 
 import java.util.List;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.company.apppersistence.dao.BookDAO;
 import com.company.apppersistence.model.Book;
 
-@Repository
-public class BookDAOImpl implements BookDAO{
-
-	@Autowired
-	private SessionFactory sessionFactory;
+@Service
+public class BookServiceImpl implements BookService{
 	
+	@Autowired
+	private BookDAO bookDAO;
+
 	@Override
 	public long save(Book book) {
 		// TODO Auto-generated method stub
@@ -27,8 +29,9 @@ public class BookDAOImpl implements BookDAO{
 	}
 
 	@Override
+	@Transactional
 	public List<Book> list() {
-		return sessionFactory.getCurrentSession().createQuery("from Book").list();
+		return bookDAO.list();
 	}
 
 	@Override
