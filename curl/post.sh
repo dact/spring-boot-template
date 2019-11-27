@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -d '{"title":"El olvido que seremos", "author":"Hector Abad Faciolince"}' localhost:8080/com.company.book/api/book

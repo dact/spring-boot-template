@@ -23,8 +23,7 @@ public class BookServiceImpl implements BookService{
 
 	@Override
 	public long save(Book book) {
-		// TODO Auto-generated method stub
-		return 0;
+		return bookRepository.save(book).getId();
 	}
 
 	@Override
