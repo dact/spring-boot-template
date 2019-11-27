@@ -11,8 +11,8 @@ import com.company.apppersistence.model.Book;
 @Repository
 public class BookDAOImpl implements BookDAO{
 
-	@Autowired
-	private SessionFactory sessionFactory;
+	//@Autowired
+	//private SessionFactory sessionFactory;
 	
 	@Override
 	public long save(Book book) {
@@ -28,7 +28,8 @@ public class BookDAOImpl implements BookDAO{
 
 	@Override
 	public List<Book> list() {
-		return sessionFactory.getCurrentSession().createQuery("from Book").list();
+		//return sessionFactory.getCurrentSession().createQuery("from Book").list();
+		return null;
 	}
 
 	@Override
